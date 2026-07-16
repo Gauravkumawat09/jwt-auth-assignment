@@ -11,10 +11,15 @@ const app = express();
 
 connectDB();
 
-app.use(cors({
-    origin: "http://localhost:5173",
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://jwt-auth-assignment-tau.vercel.app"
+    ],
     credentials: true,
-  }));
+  })
+);
 app.use(express.json());
 app.use("/api/auth", authRoute);
 
